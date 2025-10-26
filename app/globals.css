@@ -4,40 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color scheme for AQI monitoring - health-focused with AQI level colors */
-  --background: oklch(0.98 0 0);
+  /* Updated color scheme for the Teal/Pale Green theme */
+  --background: oklch(0.97 0.02 140); /* Changed: Pale mint-green background */
   --foreground: oklch(0.15 0 0);
-  --card: oklch(1 0 0);
+  --card: oklch(1 0 0); /* Changed: Plain white cards */
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0 0);
-  --primary: oklch(0.45 0.15 200);
+  --primary: oklch(0.5 0.15 170); /* Changed: A strong teal color for buttons/links */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0 0);
+  --secondary: oklch(0.94 0.03 140); /* Changed: A slightly darker mint-green for hover/accents */
   --secondary-foreground: oklch(0.15 0 0);
-  --muted: oklch(0.92 0 0);
+  --muted: oklch(0.92 0.02 140); /* Muted color tinted with background */
   --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.45 0.15 200);
+  --accent: oklch(0.5 0.15 170); /* Match primary */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.6 0.25 25);
   --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.95 0 0);
-  --ring: oklch(0.45 0.15 200);
+  --border: oklch(0.9 0.02 140); /* Border tinted with background color */
+  --input: oklch(0.95 0.02 140);
+  --ring: oklch(0.5 0.15 170); /* Match primary */
   --chart-1: oklch(0.6 0.2 120);
   --chart-2: oklch(0.7 0.18 60);
   --chart-3: oklch(0.65 0.22 30);
   --chart-4: oklch(0.55 0.25 0);
   --chart-5: oklch(0.5 0.2 280);
   --radius: 0.625rem;
-  --sidebar: oklch(0.98 0 0);
+  --sidebar: oklch(0.97 0.02 140); /* Match background */
   --sidebar-foreground: oklch(0.15 0 0);
-  --sidebar-primary: oklch(0.45 0.15 200);
+  --sidebar-primary: oklch(0.5 0.15 170); /* Match primary */
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.92 0 0);
+  --sidebar-accent: oklch(0.94 0.03 140); /* Match secondary */
   --sidebar-accent-foreground: oklch(0.15 0 0);
-  --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.45 0.15 200);
+  --sidebar-border: oklch(0.9 0.02 140); /* Match border */
+  --sidebar-ring: oklch(0.5 0.15 170); /* Match ring */
 
   /* AQI Level Colors */
   --aqi-good: oklch(0.6 0.2 120);
@@ -48,38 +48,39 @@
 }
 
 .dark {
-  --background: oklch(0.12 0 0);
+  /* Dark version of the Teal/Pale Green theme */
+  --background: oklch(0.12 0.01 150); /* Dark, desaturated green-cyan */
   --foreground: oklch(0.95 0 0);
-  --card: oklch(0.18 0 0);
+  --card: oklch(0.18 0.01 150); /* Slightly lighter dark card */
   --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.18 0 0);
+  --popover: oklch(0.18 0.01 150);
   --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.6 0.15 200);
+  --primary: oklch(0.6 0.15 170); /* Bright teal */
   --primary-foreground: oklch(0.12 0 0);
-  --secondary: oklch(0.25 0 0);
+  --secondary: oklch(0.25 0.02 150);
   --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.3 0 0);
+  --muted: oklch(0.3 0.01 150);
   --muted-foreground: oklch(0.7 0 0);
-  --accent: oklch(0.6 0.15 200);
+  --accent: oklch(0.6 0.15 170);
   --accent-foreground: oklch(0.12 0 0);
   --destructive: oklch(0.6 0.25 25);
   --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.25 0 0);
-  --ring: oklch(0.6 0.15 200);
+  --border: oklch(0.25 0.01 150);
+  --input: oklch(0.25 0.01 150);
+  --ring: oklch(0.6 0.15 170);
   --chart-1: oklch(0.6 0.2 120);
   --chart-2: oklch(0.7 0.18 60);
   --chart-3: oklch(0.65 0.22 30);
   --chart-4: oklch(0.55 0.25 0);
   --chart-5: oklch(0.5 0.2 280);
-  --sidebar: oklch(0.15 0 0);
+  --sidebar: oklch(0.12 0.01 150);
   --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.6 0.15 200);
+  --sidebar-primary: oklch(0.6 0.15 170);
   --sidebar-primary-foreground: oklch(0.95 0 0);
-  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent: oklch(0.25 0.02 150);
   --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.6 0.15 200);
+  --sidebar-border: oklch(0.25 0.01 150);
+  --sidebar-ring: oklch(0.6 0.15 170);
 
   /* AQI Level Colors */
   --aqi-good: oklch(0.6 0.2 120);
