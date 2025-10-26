@@ -15,41 +15,44 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-  const fetchAQI = async () => {
-    try {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async (position) => {
-          const { latitude, longitude } = position.coords
+    const fetchAQI = async () => {
+      try {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(async (position) => {
+            const { latitude, longitude } = position.coords
 
-          // ✅ safer OpenAQ API request without CORS issues
-          const res = await fetch(
-            `https://api.openaq.org/v2/measurements?coordinates=${latitude},${longitude}&radius=10000&limit=1`
-          )
+            // ✅ Fetch from your own backend API route (no CORS)
+            const res = await fetch(`/api/aqi?lat=${latitude}&lon=${longitude}`)
+            if (!res.ok) throw new Error('API error')
 
-          if (!res.ok) throw new Error('API error')
-          const json = await res.json()
+            const json = await res.json()
 
-          if (json.results && json.results.length > 0) {
-            const city = json.results[0].city || 'Unknown'
-            const value = json.results[0].value
-            const { category, advice } = getAQICategory(value)
-            setData({ city, aqi: value, category, advice })
-          } else {
-            setError('No AQI data found near you')
-          }
-        })
-      } else {
-        setError('Geolocation not supported in this browser')
+            if (json.results && json.results.length > 0) {
+              const city = json.results[0].city || 'Unknown'
+              const value = json.results[0].value
+              const { category, advice } = getAQICategory(value)
+              setData({ city, aqi: value, category, advice })
+            } else {
+              setError('No AQI data found near you')
+            }
+          })
+        } else {
+          setError('Geolocation not supported in this browser')
+        }
+      } catch (err) {
+        console.error(err)
+        // ✅ Fallback to Delhi if live data fails
+        const fallbackAQI = 180
+        const { category, advice } = getAQICategory(fallbackAQI)
+        setData({ city: 'Delhi', aqi: fallbackAQI, category, advice })
+        setError('Using fallback data (Delhi)')
+      } finally {
+        setLoading(false)
       }
-    } catch (err) {
-      setError('Unable to fetch AQI data')
-    } finally {
-      setLoading(false)
     }
-  }
 
-  fetchAQI()
-}, [])
+    fetchAQI()
+  }, [])
 
   const getAQICategory = (value: number) => {
     if (value <= 50)
