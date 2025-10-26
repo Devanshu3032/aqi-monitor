@@ -7,8 +7,11 @@ export default function Header() {
             <span className="text-white font-bold text-lg">AQI</span>
           </div>
           <div>
-            <h1 className="text-3xl font-bold text-foreground">Air Quality Monitor</h1>
-            <p className="text-muted-foreground text-sm">Real-time AQI tracking for your health</p>
+            <h1 className="text-3xl font-bold text-foreground">AeroSense</h1>
+            <p className="text-muted-foreground text-sm">Your city’s air, decoded in real-time.</p>
+              <p className="text-xs text-muted-foreground mt-1 italic">
+              Made & Designed by <span className="font-semibold text-primary">DEVANSHU</span>
+            </p>
           </div>
         </div>
       </div>
